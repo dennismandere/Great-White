@@ -1,0 +1,38 @@
+
+R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> assignment2<-c(16,18,14,22,27,17,19,17,17,22,20,22)
+> assignment2
+ [1] 16 18 14 22 27 17 19 17 17 22 20 22
+> sum(assignment2)
+[1] 231
+> length(assignment2)
+[1] 12
+> sum(assignment2)/length(assignment2)
+[1] 19.25
+> x<-231
+> y<-12
+> z<-x/y
+> print(x/y)
+[1] 19.25
+> myMean<-sum(assignment2)/length(assignment2)
+> myMean
+[1] 19.25
+> save.image("C:\\Users\\Dennis Mandere\\Documents\\R\\win-library\\.RData")
+> `
