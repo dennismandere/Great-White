@@ -1,0 +1,43 @@
+
+R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> Name<-c("Jebb","Donald","Ted","Marco","Carly","Hillary","Bernie")
+> ABCpoll<-c(4,62,51,21,2,14,15)
+> CBSpoll<-c(12,75,43,19,1,21,19)
+> Polls<-c(Name,ABCpoll,CBSpoll)
+> Polls
+ [1] "Jebb"    "Donald"  "Ted"     "Marco"   "Carly"   "Hillary" "Bernie" 
+ [8] "4"       "62"      "51"      "21"      "2"       "14"      "15"     
+[15] "12"      "75"      "43"      "19"      "1"       "21"      "19"     
+> Polls<-data.frame(Name,ABCpoll,CBSpoll)
+> Polls
+     Name ABCpoll CBSpoll
+1    Jebb       4      12
+2  Donald      62      75
+3     Ted      51      43
+4   Marco      21      19
+5   Carly       2       1
+6 Hillary      14      21
+7  Bernie      15      19
+> mean(Polls[,2])
+[1] 24.14286
+> mean(Polls[,3])
+[1] 27.14286
+> save.image("C:\\Users\\Dennis Mandere\\Documents\\R\\.RData")
+> 
