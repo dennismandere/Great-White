@@ -1,0 +1,62 @@
+> A=matrix(c(2,0,1,3),ncol=2)
+> B=matrix(c(5,2,4,-1),ncol=2)
+> A
+     [,1] [,2]
+[1,]    2    1
+[2,]    0    3
+> B
+     [,1] [,2]
+[1,]    5    4
+[2,]    2   -1
+> #Addition of matrix A and matrix B
+> A+B
+     [,1] [,2]
+[1,]    7    5
+[2,]    2    2
+> 
+> #Subtraction of matrix B from A
+> A-B
+     [,1] [,2]
+[1,]   -3   -3
+[2,]   -2    4
+> 
+> #To build a matrix of size 4 with a diagonal (4,1,2,3)
+> diag(c(4,1,2,3))
+     [,1] [,2] [,3] [,4]
+[1,]    4    0    0    0
+[2,]    0    1    0    0
+[3,]    0    0    2    0
+[4,]    0    0    0    3
+> #To get a 4 by 4 diagonal matrix of 3
+> K<-diag(c(3,3,3,3,3))
+> K<-diag(3,5,5)
+> K
+
+
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    3    0    0    0    0
+[2,]    0    3    0    0    0
+[3,]    0    0    3    0    0
+[4,]    0    0    0    3    0
+[5,]    0    0    0    0    3
+
+
+> #In order to change the diagonal matrix K,you create a new matrix with the values and add.
+> L<-matrix(c(0,1,1,1,1,2,0,0,0,0,2,0,0,0,0,2,0,0,0,0,2,0,0,0,0),ncol=5,byrow =T)
+> L
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    0    1    1    1    1
+[2,]    2    0    0    0    0
+[3,]    2    0    0    0    0
+[4,]    2    0    0    0    0
+[5,]    2    0    0    0    0
+> W<-K+L
+> W
+
+     [,1] [,2] [,3] [,4] [,5]
+[1,]    3    1    1    1    1
+[2,]    2    3    0    0    0
+[3,]    2    0    3    0    0
+[4,]    2    0    0    3    0
+[5,]    2    0    0    0    3
+> 
