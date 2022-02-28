@@ -1,0 +1,74 @@
+> #To create an S3 oblect you use the list function because its easy to manipulate.
+> b<-list(height=172,weight=59,gender="female")
+> b
+$height
+[1] 172
+
+$weight
+[1] 59
+
+$gender
+[1] "female"
+
+> class(b)<-"bmi"
+> class(b)
+[1] "bmi"
+> attributes(b)#check the class
+$names
+[1] "height" "weight" "gender"
+
+$class
+[1] "bmi"
+
+> 
+> #you can access the member variable by the $ sign for example
+> b$weight
+[1] 59
+> 
+> #You can create your own generic function
+> print.bmi<-function(height,weight,gender){cat(obj$height,"is height of person\n")
++ cat("weightin kg",obj$weight,"\n")
++ cat("gender",obj$gender,"\n")}
+> 
+> #Applying my generic method
+> height.bmi<-function(object){cat(object$height,"is height of person\n")}
+> height.bmi(b)
+172 is height of person
+> 
+> 
+> #its therefore possible to use a generic method like print() 
+> print.bmi
+function(height,weight,gender){cat(obj$height,"is height of person\n")
+cat("weightin kg",obj$weight,"\n")
+cat("gender",obj$gender,"\n")}
+> 
+> 
+> #creating S4.I will use the same data set like in S3 above.The first step is
+> #to define a class by using the setClass()function.
+> setClass("bmi",slots=list(height="numeric",weight="numeric",gender="character"))
+> g<-new("bmi",height=172,weight=59,gender="female")
+> g
+172 is height of person
+weightin kg 59 
+gender female 
+> 
+> #We can test if its an S4 object as follows
+> isS4(g)
+[1] TRUE
+> 
+> #We can access a variable component using @ e.g
+> g@"gender"
+[1] "female"
+> g@height
+[1] 172
+> 
+> #Creating your own method in S4.We use the setMethod()function. 
+> setMethod("show","bmi",function(object){
++ cat(object@height,"is height of person\n")
++ cat("weightin kg",object@weight,"\n")
++ cat("gender",object@gender,"\n")})
+> g
+172 is height of person
+weightin kg 59 
+gender female 
+> 
