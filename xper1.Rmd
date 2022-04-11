@@ -1,0 +1,45 @@
+---
+title: "xpower2dist"
+author: "Dennis Mandere"
+date: "4/11/2022"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Xpower2dist
+Is a package that enables a user to calculate the expected cell frequencies in a chi square test of independence.
+For the test to work the following conditions must be met:
+*The expected cell values must be >5.
+*The sample size must be large enough.
+*Two categorical variables.
+*Two or more categories for each variable.
+*The observations must be independent of each other.
+
+T
+```{r}
+Jay = function(x) {
+  x = observed_table<-matrix(c(32,30,28,74,64,42,110,25,15,39,6,5),
+                             nrow = 4,ncol = 3,byrow = T)
+  row.names(observed_table) <-c('Dormitory','On_campus','Off_campus','At home')
+  colnames(observed_table) <-c('No_regular','Sporadic','Regular')
+  chis <- chisq.test(observed_table)
+  y = round(chis$expected,2)
+  return(y)
+}
+
+```
+
+##
+# FAQ of Xpower2dist
+#Q:What is xpower2dist
+#A:It is a package that enables users to get the expected cell frequency values
+#in a chi square test of independence.
+#Q:What are the functions that this package depends on?
+#A:It depends on the chisq.test function
+#Q:What type of data set is deployed?
+#A:The data can be a vector,matrix,data frame,table
+#NB
+#This is work on progress more details and functions will be added
