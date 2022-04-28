@@ -1,0 +1,72 @@
+
+ ---
+title: "xpowergood"
+author: "Dennis Mandere"
+date: "4/26/2022"
+output: html_document
+---
+***Xpowergood package***
+
+**Introduction**
+This is a package that returns the expected cell frequencies in a chi square 
+test of independence.The expected cell frequencies formula is:
+Expected cell frequency=(Row total*column total)/N.
+
+This is then used in the chi square test of independence.The test statistic is:
+(observed cell frequencies-Expected cell frequencies)^2/Expected cell frequencies
+(O-E)^2/E
+
+For this package to work the sample observations are independent of each other and the sample size is large enough(expected cell frequency of each cell n>5) for at least two categorical variables or more.
+inside groups for each variable.
+```{r}
+library(xpowergood)
+
+```
+
+The following functions are applicable to this package
+
+**Jael function**
+
+```{r showandtell,results='markup',eval=TRUE}
+jael<-function(x) {
+  x = observed_table<-matrix(c(34,30,28,74,62,42,110,25,15,39,8,7),
+                             nrow = 4,ncol = 3,byrow = T)
+  row.names(observed_table) <-c('Dormitory','On_campus','Off_campus','At home')
+  colnames(observed_table) <-c('No_regular','Sporadic','Regular')
+  chis <- chisq.test(observed_table)
+  y = round(chis$expected,2)
+  return(y)
+}
+```
+
+
+
+##
+**mos function**
+
+Returns a mosaic plot of the contigency table which shows the frequencies of the
+observations
+```{r}
+mos<-function(h) {
+  h = mosaicplot(observed_table,main = "Exercise by living arrangemet",
+                 ylab = "Exercise status",
+                 xlab = "residence",col = c(2,3,4))
+}
+```
+
+**bay function**
+Returns a bar plot of the exercise status and the living arrangement.
+
+```{r}
+bay<-function(k)  {
+  k = barplot(observed_table,ylab="Residence", xlab="Exercise status",
+              main="Exercise by living arrangement",
+              col = c("turquoise4","turquoise3","turquoise2", "turquoise"),
+              beside = T, width = .3)
+}
+```
+
+***Resources***
+
+Essentials of Biostatistics in public health, Third edition. Lisa M. Sullivan
+
