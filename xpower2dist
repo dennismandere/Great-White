@@ -1,0 +1,17 @@
+Package: xpower2dist
+Title: Expected cell frequency in a chi square test of independence
+Version: 0.0.0.9000
+Authors@R: 
+    person("Dennis", "Mandere", email="dennismandere@usf.edu",
+    role =c("aut", "cre"))
+Description:It determines the value of expected frequencies in a Chi square test
+where the sample observations are independent of each other and the sample size 
+is large enough(expected cell frequency of each cell n>5) for at least two categorical variables and two or more
+inside groups for each variable.
+Depends:R(>=3.1.2)
+
+License: CC0(http://bit.ly/1F96Zgp)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+LazyData:true

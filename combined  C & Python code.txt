@@ -1,0 +1,324 @@
+// Activity 1:"Hello, world" 
+
+//Pseudocode 1
+//Print "Hello, world!" to the screen
+
+//Activity 1:C code 1 
+
+#include <stdio.h>
+
+int main(int argc, char **argv) {
+puts("Hello, world");
+return 1;
+}
+
+
+//Activty 1:python code 1 
+print("Hello, world!")
+
+//Activity 1 Pseudocode 2
+//open a file named "hello.txt".Write "Hello, world" to the flie,
+ close the file.
+
+
+//Activity 1:C code 2
+#include <stdio.h>
+
+ int main(int argc, char **argv){
+ 	FILE *fp = fopen("jade.txt","w");
+ 	fprintf(fp, "Hello, world!");
+ 	fclose(fp);
+ 	return 1;
+ }
+
+
+ //Activity 1:python code 2
+
+ f = open("jadee.txt","w")
+ f.write("Hello, world!")
+ f.close()
+
+
+ //Activity 1 Pseudocode 3
+ For each world Greet the world
+
+ //Activity 1:C code 3
+
+
+
+#include <stdio.h>
+
+ int main(int argc, char **argv){
+     for(int i=1;i<11;i++){
+          printf("Hello, world %d\n", i);
+     }
+     return 1;
+ }
+
+
+ #include <stdio.h>
+
+ int main(int argc, char **argv){
+     for(int i=1;i<11;i++){
+          char *suffix;
+          if (i==1)
+               suffix = "st";
+          else if (i==2)
+               suffix = "nd";
+          else if (i==3)
+               suffix = "rd";
+          else
+               suffix = "th";
+          printf("Hello, %d%s world!\n",
+               i,suffix);
+     }
+     return 1;
+ }
+
+
+ //Activity 1:python code 3
+
+for i in range(1,11):
+     print("Hello, world %d" % i)
+
+///////////////////
+for i in range(1,11):
+     if i == 1:
+          suffix="st"
+     elif i == 2:
+         suffix="nd"
+     elif i == 3:
+         suffix="rd"
+     else:
+         suffix="th"
+
+     print("Hello, world %d%s" % (i, suffix))
+
+
+
+
+ //Activity 2: Interactive & Batch Averaging
+
+//Pseudocode 1
+
+Set count and total to zero.
+Get  a number from the user.
+Add the number to the total.
+Increment the count.
+If the user wants to enter another number return to the first step.
+Compute the average as total/count.
+print the average.
+
+
+//Activity 2:C Code 1
+
+#include <stdio.h>
+
+int main(int argc, char **argv){
+     //declare variables
+     int count, total, number;
+
+     //prompt user for a number, then read numbers,one by one until we get a letter
+     printf("Enter a number:");
+     for (count = total = 0; scanf("%d",&number); count++){
+          total += number;
+          printf("Enter another number (or any letter to end):");
+     }
+
+     //compute then print the average as a float
+     float average = (float)total/(float)count;
+     printf("The average is: %f\n", average);
+     return 1;
+}
+
+
+//Activity 2:python code 1
+
+total = count = 0
+while(True):
+  try:
+    if count == 0:
+      print("Enter a number:")
+    else:
+      print("Enter another number or any letter to finish:")
+    number = int(input())
+    total += number
+    count += 1
+  except ValueError:
+    break
+print("The average is %f\n" %(total/count))
+
+
+//Activity 2 Pseudocode 2
+
+#Set count and total both to zero.
+Open the input and output files.
+For every number in the input file:
+Read the number.
+Add the number to the total.
+Increment the count by one.
+Compute current average = total/count.
+Write count and current average to the outfile.
+print the final average
+
+//Activity 2:C code 2
+
+
+#include <stdio.h>
+
+int main(int argc, char **argv){
+  int count, total, number; float average;
+  
+  FILE *infile = fopen("ivera.dat","r");
+  FILE *outfile = fopen("output.dat","w");
+
+  for (count = total = 0; fscanf(infile,"%d",&number) != EOF;){
+    count++; total += number;
+    average = (float)total/(float)count;
+    fprintf(outfile,"%d %f\n",count,average);
+  }
+  printf("The average is: %f\n", average);
+  
+  fclose(infile);
+  fclose(outfile);
+  return 1;
+}
+
+
+//Activity 2:python code 2
+
+total = count = 0.0
+infile = open("vera.dat", "r")
+outfile = open("output.dat","w")
+for line in infile:
+   try:
+     number = int(line)
+     total += number
+     count += 1
+     outfile.write("%d %f\n" % (count,total/count))
+   except ValueError:
+     break
+print("The average is %f\n" % (total/count))
+
+
+//Activity #3 Filtering and sorting
+
+//Activity 3:Pseudocode 1
+
+Set count and total to zero.
+Open input file
+For each number in the file
+if the number is zero do nothing
+else add the number to the total and increment the count
+Print the average (i.e. total/count).
+
+//Activity 3:C Code 1
+
+#include <stdio.h>
+
+int main(int argc, char **argv){
+  int count, total, number; float average;
+
+  FILE *infile = fopen("filesort1.dat","r");
+  for (count = total = 0; fscanf(infile,"%d",&number) != EOF;){
+    if (number == 0)
+        continue;
+    count++; total += number;
+  }
+  average = (float)total/(float)count;
+  printf("The average is: %f\n", average);
+  fclose(infile);
+  return 1;
+}
+
+
+//Activity 3 Python code 1 
+
+ total = count = 0.0
+infile = open("filsort1.dat","r")
+for line in infile:
+  try:
+    number = int(line)
+    if number is 0:
+      continue
+    total += number
+    count += 1
+  except ValueError:
+    break
+print("The average is %f\n" % (total/count))
+infile.close()
+
+
+//Activity 3 pseudocode 2
+Open input and output file.
+For each number in the input file
+if the number is negative do nothing
+else store the number for later use
+Sort stored numbers
+Write sorted numbers to the outfile.
+Close input and output files
+
+
+// Activity 3 C code 2
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv){
+  int count, total, number;
+  int *numbers = malloc(0);
+
+  FILE *infile = fopen("prak3code2.dat","r");
+  FILE *outfile = fopen("output.dat","w");
+  
+  for (count = total = 0; fscanf(infile,"%d",&number) != EOF;){
+    if (number < 0)
+      continue;
+    count++;
+    numbers = realloc(numbers,sizeof*numbers*count);
+    numbers[count-1] = number;
+  }
+int *sorted = malloc(sizeof*sorted*count);
+int i,j,k;
+
+for (i=0;i<count;i++){
+  sorted[i] = -1; //set current slow to definite loser
+  for (j=0;j<count;j++){
+    if (numbers[j] > sorted[i]){
+      sorted[i] = numbers[j]; //store the winning value
+      k = j; //track the index of the winner
+    }
+  }
+  numbers[k] = -1; //remove the winner from further consideration
+}
+for (i=0;i<count;i++)
+  fprintf(outfile,"%d\n",sorted[i]);
+
+ free(sorted); fclose(infile); fclose(outfile);
+ return 1;
+}
+
+
+//Activity 3 python code 2
+
+infile = open("prak3pycode.dat","r")
+outfile = open("output.dat", "w")
+numbers = []
+
+for line in infile:
+  try:
+    number = int(line)
+    if number < 0:
+      continue
+    numbers.append(number)
+  except ValueError:
+    break
+
+numbers.sort(reverse=True)
+for number in numbers:
+    outfile.write(str(number) + '\n')
+
+infile.close()
+outfile.close()
+
+
